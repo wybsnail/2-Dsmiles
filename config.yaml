@@ -1,0 +1,73 @@
+---
+ working_dir: '.'
+ default_data_variant: 'protein'
+ fname_dataset_smiles: 'dataset/chembl28-cleaned.smi'
+ fname_tokenizer_smiles: '.tokenizer.pkl'
+ maxLength_smiles: 128
+ fname_dataset_protein: 'dataset/protein_samples.fa'
+ fname_tokenizer_protein: '.tokenizer_protein.pkl'
+ maxLength_protein: 256
+ fname_dataset: 'dataset/protein_samples.fa'
+ fname_fps: 'dataset/fps.pkl'
+ fname_tokenizer: '.tokenizer_protein.pkl'
+ fname_rnn_parameters: 'parameters/rnn.param'
+ fname_lstm_parameters: 'parameters/lstm.param'
+ fname_transformer_parameters: 'parameters/transformer.param'
+ fname_mamba_parameters: 'parameters/mamba.param'
+ fname_vae_encoder_parameters: 'parameters/encoder.param'
+ fname_vae_decoder_parameters: 'parameters/decoder.param'
+ fname_gan_generator_parameters: 'parameters/generator.param'
+ fname_gan_discriminator_parameters: 'parameters/discriminator.param'
+ fname_flow_parameters: 'parameters/flow.param'
+ fname_diffusion_parameters: 'parameters/diffusion.param'
+ sampled_dir: 'sampled'
+ maxLength: 256
+ batch_size: 512
+ num_epoch: 6
+ lr: 5.0e-3
+
+ rnn_param:
+  embedding_dim: 32
+  hidden_dim: 128
+  num_hidden: 3
+
+ lstm_param:
+  embedding_dim: 32
+  hidden_dim: 128
+  num_hidden: 3
+
+ transformer_param:
+  embedding_dim: 32
+  hidden_dim: 128
+  num_hidden: 3
+  num_heads: 4
+
+ mamba_param:
+  embedding_dim: 32
+  hidden_dim: 3
+  num_hidden: 3
+  d_state: 16
+  d_conv: 4
+  expand: 2
+
+ vae_param:
+  fc_dims: [512, 256, 128]
+  latent_dim: 64
+  hidden_dim: 128
+  num_hidden: 3
+
+ gan_param:
+  latent_dim: 128
+  generator_hidden: [512, 1024, 9216]
+  discriminator_hidden: [2048, 512, 128]
+  label_smoothing: 0.1
+
+ flow_param:
+  hidden_dims: [512, 512]
+  num_coupling: 4
+
+ diffusion_param:
+  hidden_dims: [512, 512]
+  timesteps: 100
+  beta_start: 1.0e-4
+  beta_end: 0.02
